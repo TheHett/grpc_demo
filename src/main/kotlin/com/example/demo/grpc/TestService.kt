@@ -11,11 +11,11 @@ import org.lognet.springboot.grpc.recovery.GRpcExceptionScope
 class TestService : DemoServiceGrpcKt.DemoServiceCoroutineImplBase() {
 
     @GRpcExceptionHandler
-    fun privateHandler(e: NullPointerException, scope: GRpcExceptionScope): Status {
+    fun privateHandler(e: Exception, scope: GRpcExceptionScope): Status {
         return Status.INTERNAL.withDescription("Private exception handler works!")
     }
 
     override suspend fun test(request: Test.Request): Test.Response {
-        throw NullPointerException("Hello, it's me :)")
+        throw Exception("Hello, it's me :)")
     }
 }
