@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package demo.api;
+
+import "google/protobuf/timestamp.proto";
+
+
+service DemoService {
+  rpc test(Request) returns (Response);
+}
+
+message Request {
+
+}
+
+message Response {
+
+}
